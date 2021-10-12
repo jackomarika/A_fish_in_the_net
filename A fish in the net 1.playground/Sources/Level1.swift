@@ -3,9 +3,7 @@ import SpriteKit
 import SwiftUI
 
 
-public class Intro: SKScene {
-    
-   
-    }
-
-
+public class Level1: SKScene {
+        
+        var bobLevel : SKSpriteNode!
+}
