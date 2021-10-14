@@ -4,5 +4,6 @@
         <page name='Intro'/>
         <page name='Level1'/>
         <page name='Level2'/>
+        <page name='End'/>
     </pages>
 </playground>
