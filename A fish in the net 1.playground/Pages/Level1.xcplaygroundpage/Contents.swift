@@ -137,6 +137,7 @@ class Level1: SKScene,SKPhysicsContactDelegate {
                 webArrived = true
                 self.bobLevel1.removeAllActions()
                 self.bobLevel1.run(SKAction.animate(with: [SKTexture(imageNamed: "bobLevel1.2")], timePerFrame: 0.1))
+                run(SKAction.playSoundFileNamed("sfx-voice4.mp3", waitForCompletion: false))
             }
         }
         }

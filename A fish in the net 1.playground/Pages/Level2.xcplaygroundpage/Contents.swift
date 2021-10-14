@@ -62,6 +62,8 @@ class Level2: SKScene {
                     addChild(heart_node)
                     heart_node.run(animate)
                     net?.run(change)
+                    
+                    run(SKAction.playSoundFileNamed("sfx-magic6.mp3", waitForCompletion: false))
                 }
             }
              }
