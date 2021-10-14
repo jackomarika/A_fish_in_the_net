@@ -8,13 +8,16 @@ let fishCategory : UInt32 = 0x1 << 0
 let heartCategory : UInt32 = 0x2 << 1
 
 class Level1: SKScene,SKPhysicsContactDelegate {
+    
     var bobLevel1 : SKSpriteNode!
     var heart : SKSpriteNode!
     var web : SKSpriteNode!
     var isSpawned : Bool = false
     var webArrived : Bool = false
     var counter : Int = 0
+    
     override func didMove(to view: SKView) {
+        
         physicsWorld.contactDelegate = self
         self.bobLevel1 = self.childNode(withName: "bobLevel1") as? SKSpriteNode
         self.bobLevel1.physicsBody?.categoryBitMask = fishCategory
@@ -46,8 +49,8 @@ class Level1: SKScene,SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches{
-            let rotation = SKAction.rotate(toAngle: 0.2, duration: 0.5)
-            let rotation2 = SKAction.rotate(toAngle: -0.2, duration:0.5)
+            let rotation = SKAction.rotate(toAngle: 0.1, duration: 0.5)
+            let rotation2 = SKAction.rotate(toAngle: -0.1, duration:0.5)
             let glglgl = SKAction.sequence([rotation,rotation2])
             let location = touch.location(in: self)
             let upMove = SKAction.moveTo(y: bobLevel1.position.y + 5000, duration: 10)
@@ -94,8 +97,13 @@ class Level1: SKScene,SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.node?.name=="bobLevel1" && contact.bodyB.node?.name=="heart"{
+        
+        if contact.bodyA.node?.name=="bobLevel1" && contact.bodyB.node?.name=="heart"
+        {
             contact.bodyB.node?.removeFromParent()
+            run(SKAction.playSoundFileNamed("Pop.mp3", waitForCompletion: false))
+
+
         }
         
     }
